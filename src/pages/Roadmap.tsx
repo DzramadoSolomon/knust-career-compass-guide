@@ -18,6 +18,8 @@ import {
   Target
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import CoursePopup from '@/components/CoursePopup';
 
 const Roadmap = () => {
   const [selectedYear, setSelectedYear] = useState('1');
@@ -36,7 +38,8 @@ const Roadmap = () => {
           relevance: 'High',
           careers: ['Software Developer', 'Data Analyst', 'Web Developer'],
           connections: ['CS 201', 'CS 205'],
-          industry: 'Forms the foundation for all software development roles'
+          industry: 'Forms the foundation for all software development roles',
+          image: 'photo-1461749280684-dccba630e2f6' // Monitor showing Java programming
         },
         {
           id: 'math101',
@@ -48,7 +51,8 @@ const Roadmap = () => {
           relevance: 'Medium',
           careers: ['Systems Engineer', 'Data Scientist', 'Research Engineer'],
           connections: ['MATH 201', 'EE 201'],
-          industry: 'Essential for signal processing and machine learning algorithms'
+          industry: 'Essential for signal processing and machine learning algorithms',
+          image: 'photo-1488590528505-98d2b5aba04b' // Turned on gray laptop computer
         },
         {
           id: 'ee101',
@@ -60,7 +64,8 @@ const Roadmap = () => {
           relevance: 'High',
           careers: ['Hardware Engineer', 'Embedded Systems Engineer', 'IoT Developer'],
           connections: ['EE 201', 'CE 301'],
-          industry: 'Critical for understanding computer hardware and embedded systems'
+          industry: 'Critical for understanding computer hardware and embedded systems',
+          image: 'photo-1487058792275-0ad4aaf24ca7' // Colorful software or web code
         }
       ],
       2: [
@@ -74,7 +79,8 @@ const Roadmap = () => {
           relevance: 'High',
           careers: ['Software Engineer', 'Systems Architect', 'Technical Lead'],
           connections: ['CS 301', 'CS 401'],
-          industry: 'Core requirement for technical interviews and software optimization'
+          industry: 'Core requirement for technical interviews and software optimization',
+          image: 'photo-1526374965328-7f61d4dc18c5' // Matrix movie still
         },
         {
           id: 'cs205',
@@ -86,7 +92,8 @@ const Roadmap = () => {
           relevance: 'High',
           careers: ['Database Administrator', 'Backend Developer', 'Data Engineer'],
           connections: ['CS 305', 'CS 405'],
-          industry: 'Essential for web development and data management systems'
+          industry: 'Essential for web development and data management systems',
+          image: 'photo-1498050108023-c5249f4df085' // MacBook with lines of code
         }
       ]
     },
@@ -102,7 +109,8 @@ const Roadmap = () => {
           relevance: 'High',
           careers: ['Biomedical Engineer', 'Medical Device Developer', 'Clinical Engineer'],
           connections: ['BME 201', 'BME 301'],
-          industry: 'Foundation for understanding medical technology applications'
+          industry: 'Foundation for understanding medical technology applications',
+          image: 'photo-1581091226825-a6a2a5aee158' // Woman in white using laptop
         },
         {
           id: 'bio101',
@@ -114,7 +122,8 @@ const Roadmap = () => {
           relevance: 'High',
           careers: ['Medical Device Engineer', 'Rehabilitation Engineer', 'Research Scientist'],
           connections: ['BME 205', 'BME 401'],
-          industry: 'Critical for designing medical devices and understanding patient needs'
+          industry: 'Critical for designing medical devices and understanding patient needs',
+          image: 'photo-1483058712412-4245e9b90334' // Silver iMac with keyboard
         }
       ],
       2: [
@@ -128,7 +137,8 @@ const Roadmap = () => {
           relevance: 'High',
           careers: ['Biomaterials Engineer', 'Medical Device Designer', 'Quality Assurance Engineer'],
           connections: ['BME 301', 'BME 405'],
-          industry: 'Essential for developing implants, prosthetics, and medical devices'
+          industry: 'Essential for developing implants, prosthetics, and medical devices',
+          image: 'photo-1605810230434-7631ac76ec81' // Group around video screens
         }
       ]
     }
@@ -145,16 +155,28 @@ const Roadmap = () => {
 
   const CourseCard = ({ course, department }: { course: any, department: string }) => (
     <Card 
-      className={`cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${
-        selectedCourse === course.id ? 'ring-2 ring-primary shadow-lg' : ''
+      className={`cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-l-4 border-l-accent/30 hover:border-l-accent ${
+        selectedCourse === course.id ? 'ring-2 ring-primary shadow-lg bg-accent/5' : ''
       }`}
       onClick={() => setSelectedCourse(selectedCourse === course.id ? null : course.id)}
     >
+      {/* Course Image */}
+      {course.image && (
+        <div className="relative h-32 bg-gradient-to-br from-accent/10 to-primary/10 overflow-hidden">
+          <img 
+            src={`https://images.unsplash.com/${course.image}?auto=format&fit=crop&w=600&q=80`}
+            alt={course.title}
+            className="w-full h-full object-cover opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+        </div>
+      )}
+
       <CardHeader>
         <div className="flex items-start justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-              <course.icon className="w-5 h-5 text-primary" />
+            <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
+              <course.icon className="w-5 h-5 text-accent" />
             </div>
             <div>
               <CardTitle className="text-lg">{course.code}</CardTitle>
@@ -194,7 +216,11 @@ const Roadmap = () => {
               </h4>
               <div className="flex flex-wrap gap-2">
                 {course.connections.map((connection: string) => (
-                  <Badge key={connection} variant="secondary">{connection}</Badge>
+                  <CoursePopup key={connection} courseCode={connection}>
+                    <Badge variant="secondary" className="hover:bg-accent hover:text-accent-foreground cursor-pointer">
+                      {connection}
+                    </Badge>
+                  </CoursePopup>
                 ))}
               </div>
             </div>
@@ -205,6 +231,15 @@ const Roadmap = () => {
                 Industry Application
               </h4>
               <p className="text-sm text-muted-foreground">{course.industry}</p>
+            </div>
+
+            <div className="pt-4 border-t">
+              <CoursePopup courseCode={course.code}>
+                <Button variant="outline" className="w-full hover:bg-accent hover:text-accent-foreground">
+                  <BookOpen className="w-4 h-4 mr-2" />
+                  View Full Course Details
+                </Button>
+              </CoursePopup>
             </div>
           </div>
         </CardContent>
@@ -217,8 +252,9 @@ const Roadmap = () => {
       <Navbar />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Header */}
+        {/* Header with enhanced design */}
         <div className="text-center mb-12">
+          <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent to-secondary mx-auto mb-6 rounded-full"></div>
           <h1 className="text-4xl font-bold text-foreground mb-4">
             Engineering Career Roadmap
           </h1>
@@ -230,9 +266,13 @@ const Roadmap = () => {
         {/* Department Tabs */}
         <Tabs defaultValue="computer" className="space-y-8">
           <div className="flex justify-center">
-            <TabsList className="grid w-full max-w-md grid-cols-2">
-              <TabsTrigger value="computer">Computer Engineering</TabsTrigger>
-              <TabsTrigger value="biomedical">Biomedical Engineering</TabsTrigger>
+            <TabsList className="grid w-full max-w-md grid-cols-2 bg-muted/50">
+              <TabsTrigger value="computer" className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground">
+                Computer Engineering
+              </TabsTrigger>
+              <TabsTrigger value="biomedical" className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground">
+                Biomedical Engineering
+              </TabsTrigger>
             </TabsList>
           </div>
 
@@ -246,13 +286,14 @@ const Roadmap = () => {
             
             {/* Year Selector */}
             <div className="flex justify-center">
-              <div className="grid grid-cols-4 gap-2 p-1 bg-muted rounded-lg">
+              <div className="grid grid-cols-4 gap-2 p-1 bg-muted/50 rounded-lg">
                 {[1, 2, 3, 4].map((year) => (
                   <Button
                     key={year}
                     variant={selectedYear === year.toString() ? "default" : "ghost"}
                     size="sm"
                     onClick={() => setSelectedYear(year.toString())}
+                    className={selectedYear === year.toString() ? "bg-accent hover:bg-accent/90" : ""}
                   >
                     Year {year}
                   </Button>
@@ -278,13 +319,14 @@ const Roadmap = () => {
             
             {/* Year Selector */}
             <div className="flex justify-center">
-              <div className="grid grid-cols-4 gap-2 p-1 bg-muted rounded-lg">
+              <div className="grid grid-cols-4 gap-2 p-1 bg-muted/50 rounded-lg">
                 {[1, 2, 3, 4].map((year) => (
                   <Button
                     key={year}
                     variant={selectedYear === year.toString() ? "default" : "ghost"}
                     size="sm"
                     onClick={() => setSelectedYear(year.toString())}
+                    className={selectedYear === year.toString() ? "bg-accent hover:bg-accent/90" : ""}
                   >
                     Year {year}
                   </Button>
@@ -301,8 +343,8 @@ const Roadmap = () => {
           </TabsContent>
         </Tabs>
 
-        {/* Progress Tracking */}
-        <Card className="mt-12">
+        {/* Progress Tracking with enhanced styling */}
+        <Card className="mt-12 bg-gradient-to-br from-accent/5 via-background to-primary/5 border-accent/20">
           <CardHeader>
             <CardTitle className="flex items-center">
               <CheckCircle className="w-5 h-5 mr-2 text-accent" />
@@ -316,9 +358,9 @@ const Roadmap = () => {
             <div className="grid md:grid-cols-4 gap-6">
               {[1, 2, 3, 4].map((year) => (
                 <div key={year} className="text-center">
-                  <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-3 ${
+                  <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-3 transition-colors ${
                     parseInt(selectedYear) >= year 
-                      ? 'bg-primary text-primary-foreground' 
+                      ? 'bg-accent text-accent-foreground shadow-lg' 
                       : 'bg-muted text-muted-foreground'
                   }`}>
                     {parseInt(selectedYear) > year ? (
@@ -340,6 +382,8 @@ const Roadmap = () => {
           </CardContent>
         </Card>
       </div>
+
+      <Footer />
     </div>
   );
 };
