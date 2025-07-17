@@ -1,48 +1,56 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { 
   BookOpen, 
   Users, 
-  Target,
+  Target, 
   Lightbulb,
-  ArrowRight,
-  University,
-  Cpu,
+  MapPin,
+  GraduationCap,
+  Building2,
   Heart
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const About = () => {
   const features = [
     {
-      icon: Target,
-      title: "Career Roadmaps",
-      description: "Interactive pathways showing how your courses connect to real-world careers in engineering."
+      icon: BookOpen,
+      title: "Course-Career Mapping",
+      description: "Discover how each course in your curriculum connects to real-world career opportunities and industry applications."
     },
     {
-      icon: BookOpen,
-      title: "Course Connections",
-      description: "Understand how subjects link together and build upon each other throughout your academic journey."
+      icon: Target,
+      title: "Personalized Roadmaps",
+      description: "Get customized learning paths based on your department, year of study, and career interests."
+    },
+    {
+      icon: Users,
+      title: "Resource Hub",
+      description: "Access curated online courses, YouTube tutorials, and documentation for every subject you're studying."
     },
     {
       icon: Lightbulb,
       title: "Industry Insights",
-      description: "Real-world applications, salary ranges, and job market information for different career paths."
-    },
-    {
-      icon: Users,
-      title: "Personalized Guidance",
-      description: "Tailored recommendations based on your department, year of study, and academic progress."
+      description: "Learn about salary ranges, job market demand, and growth opportunities in your field of interest."
     }
   ];
 
-  const stats = [
-    { number: "2", label: "Engineering Departments", description: "Computer & Biomedical" },
-    { number: "50+", label: "Career Paths", description: "Mapped and analyzed" },
-    { number: "100+", label: "Course Connections", description: "Detailed relationships" },
-    { number: "4", label: "Academic Years", description: "Complete coverage" }
+  const departments = [
+    {
+      name: "Computer Engineering",
+      icon: Building2,
+      description: "Building the future of technology through hardware and software integration",
+      careers: ["Software Developer", "Systems Engineer", "Data Scientist", "Cybersecurity Analyst"]
+    },
+    {
+      name: "Biomedical Engineering",
+      icon: Heart,
+      description: "Bridging engineering and medicine to improve human health and quality of life",
+      careers: ["Medical Device Engineer", "Clinical Engineer", "Biomaterials Specialist", "Research Scientist"]
+    }
   ];
 
   return (
@@ -52,54 +60,50 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="flex justify-center mb-6">
-            <div className="w-20 h-20 bg-gradient-to-br from-primary via-accent to-secondary rounded-full flex items-center justify-center">
-              <University className="w-10 h-10 text-white" />
-            </div>
-          </div>
-          <h1 className="text-4xl font-bold text-foreground mb-4">
+          <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent to-secondary mx-auto mb-6 rounded-full"></div>
+          <h1 className="text-4xl font-bold text-foreground mb-6">
             About Kareer Kompas
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Your comprehensive career guidance platform designed specifically for KNUST Engineering students. 
-            We bridge the gap between academic learning and real-world career success by showing you exactly 
-            how your courses connect to exciting career opportunities.
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            Kareer Kompas is an innovative educational platform designed specifically for KNUST Engineering students. 
+            We bridge the gap between academic coursework and real-world career opportunities, helping students 
+            understand the practical applications and career potential of every subject they study.
           </p>
         </div>
 
         {/* Mission Statement */}
-        <Card className="mb-12 bg-gradient-to-r from-accent/10 via-primary/5 to-secondary/10 border-accent/20">
+        <Card className="mb-16 bg-gradient-to-br from-accent/5 via-background to-primary/5 border-accent/20">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl text-foreground">Our Mission</CardTitle>
-            <CardDescription className="text-lg">
-              Empowering KNUST Engineering students to make informed career decisions
-            </CardDescription>
+            <CardTitle className="text-2xl flex items-center justify-center">
+              <GraduationCap className="w-6 h-6 mr-2 text-accent" />
+              Our Mission
+            </CardTitle>
           </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-              At Kareer Kompas, we believe every engineering student deserves clear guidance on how their 
-              academic journey translates to career success. We provide interactive roadmaps, detailed course 
-              connections, and industry insights to help you navigate your path from classroom to career with confidence.
+          <CardContent>
+            <p className="text-lg text-muted-foreground text-center max-w-4xl mx-auto leading-relaxed">
+              To empower KNUST Engineering students with clear, actionable insights into how their academic journey 
+              translates into meaningful career opportunities. We believe every course has value, and every student 
+              deserves to understand their potential impact on the world.
             </p>
           </CardContent>
         </Card>
 
-        {/* Features Grid */}
+        {/* Key Features */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center text-foreground mb-8">
-            What We Offer
+          <h2 className="text-3xl font-bold text-center text-foreground mb-12">
+            Key Features
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-accent">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <CardHeader className="text-center">
+                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <feature.icon className="w-6 h-6 text-accent" />
                   </div>
                   <CardTitle className="text-lg">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="leading-relaxed">
+                  <CardDescription className="text-center">
                     {feature.description}
                   </CardDescription>
                 </CardContent>
@@ -108,106 +112,100 @@ const About = () => {
           </div>
         </div>
 
-        {/* Stats Section */}
+        {/* Departments We Serve */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center text-foreground mb-8">
-            By the Numbers
+          <h2 className="text-3xl font-bold text-center text-foreground mb-12">
+            Departments We Serve
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <Card key={index} className="text-center bg-gradient-to-br from-primary/5 to-accent/5">
-                <CardContent className="pt-6">
-                  <div className="text-4xl font-bold text-primary mb-2">{stat.number}</div>
-                  <div className="text-lg font-semibold text-foreground mb-1">{stat.label}</div>
-                  <div className="text-sm text-muted-foreground">{stat.description}</div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {departments.map((dept, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
+                      <dept.icon className="w-5 h-5 text-accent" />
+                    </div>
+                    <CardTitle className="text-xl">{dept.name}</CardTitle>
+                  </div>
+                  <CardDescription className="text-base">
+                    {dept.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <h4 className="font-semibold mb-3">Popular Career Paths:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {dept.careers.map((career, careerIndex) => (
+                      <Badge key={careerIndex} variant="secondary">
+                        {career}
+                      </Badge>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
 
-        {/* Departments */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center text-foreground mb-8">
-            Departments We Cover
+        {/* KNUST Connection */}
+        <Card className="mb-16 bg-gradient-to-br from-primary/5 via-background to-accent/5 border-primary/20">
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl flex items-center justify-center">
+              <MapPin className="w-6 h-6 mr-2 text-primary" />
+              Built for KNUST
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="text-center space-y-4">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Kareer Kompas is specifically designed for students at the Kwame Nkrumah University of Science and Technology (KNUST), 
+              one of Ghana's premier institutions for science and technology education.
+            </p>
+            <p className="text-muted-foreground max-w-3xl mx-auto">
+              Our platform reflects KNUST's curriculum structure, course codes, and academic calendar, ensuring that every 
+              feature is tailored to your actual learning experience as a KNUST Engineering student.
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Vision for the Future */}
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-foreground mb-6">
+            Vision for the Future
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="hover:shadow-lg transition-all duration-300">
-              <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Cpu className="w-8 h-8 text-primary" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-xl">Computer Engineering</CardTitle>
-                    <CardDescription>Building the future of technology</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  From software development to hardware design, explore how computer engineering 
-                  courses lead to careers in tech innovation, AI, cybersecurity, and more.
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto mb-8">
+            We envision a future where every KNUST Engineering student graduates with a clear understanding of their 
+            career potential and the confidence to pursue their chosen path. Our platform will continue to evolve, 
+            adding new departments, expanding our resource library, and building stronger connections between academia and industry.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="border-accent/20">
+              <CardContent className="pt-6 text-center">
+                <h3 className="font-semibold text-lg mb-2">Expand Departments</h3>
+                <p className="text-sm text-muted-foreground">
+                  Adding all KNUST Engineering departments and other colleges
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">Software Development</Badge>
-                  <Badge variant="secondary">Hardware Design</Badge>
-                  <Badge variant="secondary">AI & Machine Learning</Badge>
-                  <Badge variant="secondary">Cybersecurity</Badge>
-                </div>
               </CardContent>
             </Card>
-
-            <Card className="hover:shadow-lg transition-all duration-300">
-              <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center">
-                    <Heart className="w-8 h-8 text-secondary" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-xl">Biomedical Engineering</CardTitle>
-                    <CardDescription>Bridging engineering and medicine</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Discover how biomedical engineering courses prepare you for careers in medical 
-                  device development, healthcare technology, research, and clinical engineering.
+            <Card className="border-accent/20">
+              <CardContent className="pt-6 text-center">
+                <h3 className="font-semibold text-lg mb-2">Industry Partnerships</h3>
+                <p className="text-sm text-muted-foreground">
+                  Connecting students directly with employers and internship opportunities
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">Medical Devices</Badge>
-                  <Badge variant="secondary">Healthcare Tech</Badge>
-                  <Badge variant="secondary">Research & Development</Badge>
-                  <Badge variant="secondary">Clinical Engineering</Badge>
-                </div>
+              </CardContent>
+            </Card>
+            <Card className="border-accent/20">
+              <CardContent className="pt-6 text-center">
+                <h3 className="font-semibold text-lg mb-2">AI-Powered Recommendations</h3>
+                <p className="text-sm text-muted-foreground">
+                  Personalized career guidance based on academic performance and interests
+                </p>
               </CardContent>
             </Card>
           </div>
         </div>
-
-        {/* CTA Section */}
-        <Card className="bg-gradient-to-r from-primary/10 via-accent/10 to-secondary/10 border-accent/20">
-          <CardContent className="text-center py-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Ready to Explore Your Career Path?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join hundreds of KNUST Engineering students who are already using Kareer Kompas 
-              to plan their academic journey and career success.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-accent hover:bg-accent/90">
-                View Roadmaps
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-              <Button size="lg" variant="outline">
-                Create Account
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
       </div>
+
+      <Footer />
     </div>
   );
 };

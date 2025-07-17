@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,6 +18,7 @@ import {
   Heart
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import { ResourcesData, CourseResources, OnlineCourse, YoutubeChannel, Documentation } from '@/types/resources';
 
 const Resources = () => {
@@ -362,6 +364,8 @@ const Resources = () => {
           </Card>
         )}
       </div>
+
+      <Footer />
     </div>
   );
 };
