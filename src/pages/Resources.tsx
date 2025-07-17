@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -18,12 +17,13 @@ import {
   Heart
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import { ResourcesData, CourseResources, OnlineCourse, YoutubeChannel, Documentation } from '@/types/resources';
 
 const Resources = () => {
   const [selectedDepartment, setSelectedDepartment] = useState('computer');
   const [selectedYear, setSelectedYear] = useState('1');
 
-  const resources = {
+  const resources: ResourcesData = {
     computer: {
       1: {
         'CS 101': {
@@ -178,7 +178,10 @@ const Resources = () => {
     }
   };
 
-  const ResourceCard = ({ resource, type }: { resource: any, type: string }) => (
+  const ResourceCard = ({ resource, type }: { 
+    resource: OnlineCourse | YoutubeChannel | Documentation, 
+    type: string 
+  }) => (
     <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
       <CardHeader>
         <div className="flex items-start justify-between">
@@ -191,9 +194,10 @@ const Resources = () => {
             <div>
               <CardTitle className="text-lg">{resource.title}</CardTitle>
               <CardDescription>
-                {type === 'course' && resource.provider}
-                {type === 'youtube' && `${resource.channel} • ${resource.subscribers} subscribers`}
-                {type === 'docs' && resource.type}
+                {type === 'course' && 'provider' in resource && resource.provider}
+                {type === 'youtube' && 'channel' in resource && 'subscribers' in resource && 
+                  `${resource.channel} • ${resource.subscribers} subscribers`}
+                {type === 'docs' && 'type' in resource && resource.type}
               </CardDescription>
             </div>
           </div>
@@ -206,20 +210,20 @@ const Resources = () => {
         <p className="text-muted-foreground mb-4">{resource.description}</p>
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            {resource.duration && (
+            {'duration' in resource && resource.duration && (
               <div className="flex items-center text-sm text-muted-foreground">
                 <Clock className="w-4 h-4 mr-1" />
                 {resource.duration}
               </div>
             )}
-            {resource.rating && (
+            {'rating' in resource && resource.rating && (
               <div className="flex items-center text-sm text-muted-foreground">
                 <Star className="w-4 h-4 mr-1 fill-yellow-400 text-yellow-400" />
                 {resource.rating}
               </div>
             )}
           </div>
-          {resource.price && (
+          {'price' in resource && resource.price && (
             <Badge variant={resource.price === 'Free' ? 'secondary' : 'outline'}>
               {resource.price}
             </Badge>
@@ -229,7 +233,7 @@ const Resources = () => {
     </Card>
   );
 
-  const currentResources = resources[selectedDepartment as 'computer' | 'biomedical']?.[selectedYear as '1' | '2'] || {};
+  const currentResources = resources[selectedDepartment]?.[selectedYear] || {};
 
   return (
     <div className="min-h-screen bg-background">
@@ -283,7 +287,7 @@ const Resources = () => {
 
         {/* Resources by Course */}
         <div className="space-y-12">
-          {Object.entries(currentResources).map(([courseCode, courseResources]) => (
+          {Object.entries(currentResources).map(([courseCode, courseResources]: [string, CourseResources]) => (
             <div key={courseCode} className="space-y-8">
               <div className="text-center">
                 <h2 className="text-2xl font-bold text-foreground mb-2">{courseCode}</h2>
@@ -298,7 +302,7 @@ const Resources = () => {
                     Online Courses
                   </h3>
                   <div className="grid md:grid-cols-2 gap-6">
-                    {courseResources.onlineCourses.map((course: any, index: number) => (
+                    {courseResources.onlineCourses.map((course: OnlineCourse, index: number) => (
                       <ResourceCard key={index} resource={course} type="course" />
                     ))}
                   </div>
@@ -313,7 +317,7 @@ const Resources = () => {
                     YouTube Channels
                   </h3>
                   <div className="grid md:grid-cols-2 gap-6">
-                    {courseResources.youtubeChannels.map((channel: any, index: number) => (
+                    {courseResources.youtubeChannels.map((channel: YoutubeChannel, index: number) => (
                       <ResourceCard key={index} resource={channel} type="youtube" />
                     ))}
                   </div>
@@ -328,7 +332,7 @@ const Resources = () => {
                     Documentation & References
                   </h3>
                   <div className="grid md:grid-cols-2 gap-6">
-                    {courseResources.documentation.map((doc: any, index: number) => (
+                    {courseResources.documentation.map((doc: Documentation, index: number) => (
                       <ResourceCard key={index} resource={doc} type="docs" />
                     ))}
                   </div>
