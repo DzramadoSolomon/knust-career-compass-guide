@@ -36,8 +36,8 @@ const Resources = () => {
               provider: "Khan Academy",
               duration: "Self-paced",
               rating: 4.9,
-              price: "Free",
-              url: "https://www.khanacademy.org/math/algebra",
+              price: "Free/Paid",
+              url: "https://www.khanacademy.org/math/algebra-basics",
               description: "Comprehensive algebra course covering variables, equations, and functions"
             },
             {
@@ -46,7 +46,7 @@ const Resources = () => {
               duration: "4 weeks",
               rating: 4.6,
               price: "Free (Certificate $49)",
-              url: "https://www.coursera.org/learn/college-algebra",
+              url: "https://study.com/academy/course/algebra.html",
               description: "Complete algebra course designed for engineering students"
             }
           ],
@@ -56,14 +56,14 @@ const Resources = () => {
               channel: "Professor Leonard",
               subscribers: "1.2M",
               description: "Clear, detailed algebra explanations with step-by-step solutions",
-              url: "https://www.youtube.com/c/ProfessorLeonard"
+              url: "https://youtube.com/playlist?list=PLDesaqWTN6ESsmwELdrzhcGiRhk5DjwLP&si=55AD0hRZUvX3T1lP"
             },
             {
               title: "Algebra Fundamentals",
               channel: "Khan Academy",
               subscribers: "7.2M",
               description: "Structured algebra tutorials from basic to advanced topics",
-              url: "https://www.youtube.com/user/khanacademy"
+              url: "https://youtube.com/playlist?list=PLSQl0a2vh4HAxgGKXD5Oc_eELflPEddPx&si=BQXBc7mP6YXNbIrn"
             }
           ],
           documentation: [
@@ -71,7 +71,7 @@ const Resources = () => {
               title: "Paul's Online Math Notes - Algebra",
               type: "Tutorial Site",
               description: "Comprehensive algebra notes with examples and practice problems",
-              url: "https://tutorial.math.lamar.edu/Classes/Alg/Alg.aspx"
+              url: "https://www.geogebra.org/math/algebra?lang=en"
             },
             {
               title: "Wolfram MathWorld - Algebra",
