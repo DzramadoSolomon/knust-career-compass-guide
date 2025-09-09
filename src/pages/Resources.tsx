@@ -28,156 +28,227 @@ const Resources = () => {
   const resources: ResourcesData = {
     computer: {
       1: {
-        'CS 101': {
+        // Semester 1 Courses
+        'MATH 110': {
           onlineCourses: [
             {
-              title: "Python for Everybody Specialization",
-              provider: "Coursera - University of Michigan",
-              duration: "8 months",
-              rating: 4.8,
-              price: "Free (with certificate option)",
-              url: "#",
-              description: "Complete Python programming course covering basics to web development"
+              title: "Algebra Basics - Khan Academy",
+              provider: "Khan Academy",
+              duration: "Self-paced",
+              rating: 4.9,
+              price: "Free",
+              url: "https://www.khanacademy.org/math/algebra",
+              description: "Comprehensive algebra course covering variables, equations, and functions"
             },
             {
-              title: "Introduction to Programming with Python",
-              provider: "edX - MIT",
-              duration: "9 weeks",
-              rating: 4.7,
-              price: "Free",
-              url: "#",
-              description: "MIT's comprehensive introduction to programming concepts"
+              title: "College Algebra",
+              provider: "Coursera - University of California",
+              duration: "4 weeks",
+              rating: 4.6,
+              price: "Free (Certificate $49)",
+              url: "https://www.coursera.org/learn/college-algebra",
+              description: "Complete algebra course designed for engineering students"
             }
           ],
           youtubeChannels: [
             {
-              title: "Programming with Mosh",
-              channel: "Programming with Mosh",
-              subscribers: "3.2M",
-              description: "High-quality programming tutorials for beginners",
-              url: "#"
+              title: "Professor Leonard - Algebra Playlist",
+              channel: "Professor Leonard",
+              subscribers: "1.2M",
+              description: "Clear, detailed algebra explanations with step-by-step solutions",
+              url: "https://www.youtube.com/c/ProfessorLeonard"
             },
             {
-              title: "Python Tutorial for Beginners",
-              channel: "Corey Schafer",
-              subscribers: "1.1M",
-              description: "In-depth Python tutorials with practical examples",
-              url: "#"
+              title: "Algebra Fundamentals",
+              channel: "Khan Academy",
+              subscribers: "7.2M",
+              description: "Structured algebra tutorials from basic to advanced topics",
+              url: "https://www.youtube.com/user/khanacademy"
             }
           ],
           documentation: [
             {
-              title: "Python Official Documentation",
-              type: "Official Docs",
-              description: "Complete Python language reference and tutorials",
-              url: "#"
+              title: "Paul's Online Math Notes - Algebra",
+              type: "Tutorial Site",
+              description: "Comprehensive algebra notes with examples and practice problems",
+              url: "https://tutorial.math.lamar.edu/Classes/Alg/Alg.aspx"
             },
             {
-              title: "Real Python",
-              type: "Tutorial Site",
-              description: "Practical Python tutorials and articles",
-              url: "#"
+              title: "Wolfram MathWorld - Algebra",
+              type: "Reference",
+              description: "Mathematical encyclopedia with algebra definitions and theorems",
+              url: "https://mathworld.wolfram.com/topics/Algebra.html"
             }
           ]
         },
-        'MATH 101': {
+        'EE 120': {
           onlineCourses: [
             {
-              title: "Calculus 1A: Differentiation",
+              title: "Circuits and Electronics",
               provider: "edX - MIT",
-              duration: "13 weeks",
-              rating: 4.6,
-              price: "Free",
-              url: "#",
-              description: "Introduction to differential calculus with engineering applications"
-            }
-          ],
-          youtubeChannels: [
+              duration: "12 weeks",
+              rating: 4.7,
+              price: "Free (Certificate $99)",
+              url: "https://www.edx.org/course/circuits-and-electronics-1-basic-circuit-analysis",
+              description: "MIT's introduction to circuit analysis and electronic devices"
+            },
             {
-              title: "Khan Academy Calculus",
-              channel: "Khan Academy",
-              subscribers: "7.2M",
-              description: "Comprehensive calculus tutorials with visual explanations",
-              url: "#"
-            }
-          ],
-          documentation: [
-            {
-              title: "Paul's Online Math Notes",
-              type: "Tutorial Site",
-              description: "Detailed calculus notes with examples and practice problems",
-              url: "#"
-            }
-          ]
-        }
-      },
-      2: {
-        'CS 201': {
-          onlineCourses: [
-            {
-              title: "Algorithms Specialization",
-              provider: "Coursera - Stanford",
-              duration: "4 months",
-              rating: 4.9,
-              price: "Free (with certificate option)",
-              url: "#",
-              description: "Comprehensive algorithms and data structures course"
-            }
-          ],
-          youtubeChannels: [
-            {
-              title: "Abdul Bari",
-              channel: "Abdul Bari",
-              subscribers: "1.8M",
-              description: "Excellent algorithms and data structures explanations",
-              url: "#"
-            }
-          ],
-          documentation: [
-            {
-              title: "Introduction to Algorithms (CLRS)",
-              type: "Textbook",
-              description: "The definitive guide to algorithms and data structures",
-              url: "#"
-            }
-          ]
-        }
-      }
-    },
-    biomedical: {
-      1: {
-        'BME 101': {
-          onlineCourses: [
-            {
-              title: "Introduction to Biomedical Engineering",
-              provider: "Coursera - Duke University",
-              duration: "6 weeks",
+              title: "DC Circuit Analysis",
+              provider: "Udemy",
+              duration: "8 hours",
               rating: 4.5,
-              price: "Free",
-              url: "#",
-              description: "Overview of biomedical engineering principles and applications"
+              price: "$29.99",
+              url: "https://www.udemy.com/course/dc-circuit-analysis/",
+              description: "Practical DC circuit analysis with hands-on examples"
             }
           ],
           youtubeChannels: [
             {
-              title: "Biomedical Engineering Explained",
-              channel: "BME Academy",
-              subscribers: "250K",
-              description: "Educational content on biomedical engineering concepts",
-              url: "#"
+              title: "ElectroBOOM",
+              channel: "ElectroBOOM",
+              subscribers: "4.5M",
+              description: "Entertaining and educational electrical engineering content",
+              url: "https://www.youtube.com/c/ElectroBOOM"
+            },
+            {
+              title: "Circuit Analysis Tutorials",
+              channel: "Michel van Biezen",
+              subscribers: "890K",
+              description: "Clear explanations of circuit analysis techniques",
+              url: "https://www.youtube.com/c/MichelvanBiezen"
             }
           ],
           documentation: [
             {
-              title: "Biomedical Engineering Handbook",
+              title: "All About Circuits - DC Circuit Analysis",
+              type: "Tutorial Site",
+              description: "Free online textbook covering DC circuit fundamentals",
+              url: "https://www.allaboutcircuits.com/textbook/direct-current/"
+            },
+            {
+              title: "Electronics Tutorials - Basic Electronics",
               type: "Reference",
-              description: "Comprehensive reference for biomedical engineering",
-              url: "#"
+              description: "Comprehensive electronics tutorials and reference materials",
+              url: "https://www.electronics-tutorials.ws/"
+            }
+          ]
+        },
+        'ENGR 130': {
+          onlineCourses: [
+            {
+              title: "Engineering Graphics and Design",
+              provider: "Coursera - Georgia Institute of Technology",
+              duration: "6 weeks",
+              rating: 4.4,
+              price: "Free (Certificate $49)",
+              url: "https://www.coursera.org/learn/engineering-graphics",
+              description: "Technical drawing principles and CAD fundamentals"
+            },
+            {
+              title: "AutoCAD for Beginners",
+              provider: "Udemy",
+              duration: "12 hours",
+              rating: 4.6,
+              price: "$49.99",
+              url: "https://www.udemy.com/course/autocad-for-beginners/",
+              description: "Complete AutoCAD course from basic to intermediate level"
+            }
+          ],
+          youtubeChannels: [
+            {
+              title: "CAD in Black",
+              channel: "CAD in Black",
+              subscribers: "180K",
+              description: "AutoCAD tutorials and technical drawing techniques",
+              url: "https://www.youtube.com/c/CADinBlack"
+            },
+            {
+              title: "Technical Drawing Course",
+              channel: "Engineering Graphics",
+              subscribers: "95K",
+              description: "Step-by-step technical drawing and drafting tutorials",
+              url: "https://www.youtube.com/channel/UCQzr4PEJRpg7mlr9qrdwONQ"
+            }
+          ],
+          documentation: [
+            {
+              title: "Engineering Drawing Standards",
+              type: "Reference",
+              description: "ISO and ANSI standards for technical drawings",
+              url: "https://www.iso.org/standard/53132.html"
+            },
+            {
+              title: "AutoCAD Documentation",
+              type: "Official Docs",
+              description: "Official AutoCAD help and learning resources",
+              url: "https://help.autodesk.com/view/ACD/2023/ENU/"
+            }
+          ]
+        },
+        // Add more semester 1 courses...
+        
+        // Semester 2 Courses
+        'EE 210': {
+          onlineCourses: [
+            {
+              title: "Electronics - Coursera Specialization",
+              provider: "Coursera - Georgia Institute of Technology",
+              duration: "4 months",
+              rating: 4.7,
+              price: "Free (Certificate $49/month)",
+              url: "https://www.coursera.org/specializations/electronics",
+              description: "Complete electronics specialization covering analog and digital circuits"
+            },
+            {
+              title: "Basic Electronics Course",
+              provider: "edX - University of British Columbia",
+              duration: "8 weeks",
+              rating: 4.5,
+              price: "Free (Certificate $99)",
+              url: "https://www.edx.org/course/basic-electronics",
+              description: "Fundamentals of electronic components and circuit design"
+            }
+          ],
+          youtubeChannels: [
+            {
+              title: "GreatScott!",
+              channel: "GreatScott!",
+              subscribers: "1.8M",
+              description: "Electronics projects and component explanations",
+              url: "https://www.youtube.com/c/greatscottlab"
+            },
+            {
+              title: "Ben Eater",
+              channel: "Ben Eater",
+              subscribers: "1M",
+              description: "In-depth electronics and computer science tutorials",
+              url: "https://www.youtube.com/c/BenEater"
+            }
+          ],
+          documentation: [
+            {
+              title: "Electronics Textbook - All About Circuits",
+              type: "Online Textbook",
+              description: "Free comprehensive electronics textbook",
+              url: "https://www.allaboutcircuits.com/textbook/"
+            },
+            {
+              title: "Electronic Components Datasheet Database",
+              type: "Database",
+              description: "Comprehensive component datasheets and specifications",
+              url: "https://www.datasheetcatalog.org/"
             }
           ]
         }
-      }
-    }
+        // Note: Additional courses can be added following this pattern
+      },
+      // Years 2-4 deactivated - see documentation for activation
+      2: {},
+      3: {},
+      4: {}
+    },
+    // Biomedical Engineering deactivated - see documentation for activation
+    biomedical: {}
   };
 
   const ResourceCard = ({ resource, type }: { 
@@ -235,7 +306,7 @@ const Resources = () => {
     </Card>
   );
 
-  const currentResources = resources[selectedDepartment]?.[selectedYear] || {};
+  const currentResources = resources.computer[1] || {};
 
   return (
     <div className="min-h-screen bg-background">
@@ -248,42 +319,30 @@ const Resources = () => {
             Learning Resources
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Curated online courses, YouTube channels, and documentation to supplement your KNUST coursework
+            Curated online courses, YouTube channels, and documentation for Year 1 Computer Engineering at KNUST
           </p>
         </div>
 
-        {/* Department and Year Selection */}
+        {/* Department Selection - Updated to show only Computer Engineering */}
         <div className="mb-8 space-y-6">
-          {/* Department Tabs */}
-          <Tabs value={selectedDepartment} onValueChange={setSelectedDepartment} className="w-full">
-            <div className="flex justify-center">
-              <TabsList className="grid w-full max-w-md grid-cols-2">
-                <TabsTrigger value="computer" className="flex items-center">
-                  <Cpu className="w-4 h-4 mr-2" />
-                  Computer Engineering
-                </TabsTrigger>
-                <TabsTrigger value="biomedical" className="flex items-center">
-                  <Heart className="w-4 h-4 mr-2" />
-                  Biomedical Engineering
-                </TabsTrigger>
-              </TabsList>
+          <div className="text-center">
+            <div className="bg-accent/10 rounded-lg p-4 inline-block">
+              <div className="flex items-center space-x-3">
+                <Cpu className="w-6 h-6 text-accent" />
+                <div>
+                  <h3 className="font-semibold text-accent">Computer Engineering - Year 1</h3>
+                  <p className="text-sm text-muted-foreground">Foundation courses resources</p>
+                </div>
+              </div>
             </div>
-          </Tabs>
+          </div>
 
-          {/* Year Selection */}
-          <div className="flex justify-center">
-            <div className="grid grid-cols-4 gap-2 p-1 bg-muted rounded-lg">
-              {[1, 2, 3, 4].map((year) => (
-                <Button
-                  key={year}
-                  variant={selectedYear === year.toString() ? "default" : "ghost"}
-                  size="sm"
-                  onClick={() => setSelectedYear(year.toString())}
-                >
-                  Year {year}
-                </Button>
-              ))}
-            </div>
+          {/* Info Banner */}
+          <div className="bg-muted/50 rounded-lg p-4 text-center">
+            <p className="text-sm text-muted-foreground">
+              📚 Currently showing Year 1 Computer Engineering resources. 
+              <span className="font-medium text-accent"> Other years and Biomedical Engineering are deactivated - see documentation for activation.</span>
+            </p>
           </div>
         </div>
 
@@ -353,13 +412,19 @@ const Resources = () => {
                 Resources Coming Soon
               </h3>
               <p className="text-muted-foreground mb-6">
-                We're currently curating resources for {selectedDepartment === 'computer' ? 'Computer' : 'Biomedical'} Engineering Year {selectedYear}.
-                Check back soon for comprehensive learning materials.
+                We're currently curating more resources for Computer Engineering Year 1 courses.
+                The available resources above are actively maintained and verified.
               </p>
-              <Button>
-                <Globe className="w-4 h-4 mr-2" />
-                Suggest Resources
-              </Button>
+              <div className="flex justify-center space-x-4">
+                <Button variant="outline">
+                  <Globe className="w-4 h-4 mr-2" />
+                  Suggest Resources
+                </Button>
+                <Button className="bg-accent hover:bg-accent/90">
+                  <FileText className="w-4 h-4 mr-2" />
+                  View Documentation
+                </Button>
+              </div>
             </CardContent>
           </Card>
         )}
