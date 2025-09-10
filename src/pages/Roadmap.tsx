@@ -22,6 +22,21 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CourseSidebar from '@/components/CourseSidebar';
 
+// Course images imports
+import algebraImage from '@/assets/courses/algebra.jpg';
+import appliedElectricityImage from '@/assets/courses/applied-electricity.jpg';
+import technicalDrawingImage from '@/assets/courses/technical-drawing.jpg';
+import basicMechanicsImage from '@/assets/courses/basic-mechanics.jpg';
+import communicationSkillsImage from '@/assets/courses/communication-skills.jpg';
+import environmentalStudiesImage from '@/assets/courses/environmental-studies.jpg';
+import engineeringTechnologyImage from '@/assets/courses/engineering-technology.jpg';
+import basicElectronicsImage from '@/assets/courses/basic-electronics.jpg';
+import electricalMachinesImage from '@/assets/courses/electrical-machines.jpg';
+import calculusAnalysisImage from '@/assets/courses/calculus-analysis.jpg';
+import electricalDrawingImage from '@/assets/courses/electrical-drawing.jpg';
+import introItImage from '@/assets/courses/intro-it.jpg';
+import introMatlabImage from '@/assets/courses/intro-matlab.jpg';
+
 const Roadmap = () => {
   const [selectedYear, setSelectedYear] = useState('1');
   const [selectedSemester, setSelectedSemester] = useState('semester1');
@@ -46,7 +61,7 @@ const Roadmap = () => {
               'Vectors: Basic vector operations, dot products, cross products'
             ],
             connections: 'Digital Logic Design: Boolean algebra, a core concept in digital logic, is an algebraic system. Circuit Analysis: Solving circuit equations heavily relies on algebraic manipulation. Data Structures & Algorithms: Understanding complexity analysis often involves algebraic reasoning.',
-            image: 'photo-1635070041078-e363dbe005cb'
+            image: algebraImage
           },
           {
             id: 'applied-electricity',
@@ -63,7 +78,7 @@ const Roadmap = () => {
               'Circuit Analysis Techniques: Nodal analysis, mesh analysis'
             ],
             connections: 'Digital Logic Design: Understanding how logic gates operate requires knowledge of basic electricity. Computer Architecture: Power delivery to CPU, memory, and other components. Embedded Systems: Designing and troubleshooting circuits for microcontrollers.',
-            image: 'photo-1518709268805-4e9042af2176'
+            image: appliedElectricityImage
           },
           {
             id: 'technical-drawing',
@@ -80,7 +95,7 @@ const Roadmap = () => {
               'Basic CAD Introduction: Familiarity with CAD software for creating digital drawings'
             ],
             connections: 'PCB Design: Principles of spatial arrangement and precise dimensioning are directly applicable. Hardware Prototyping: Understanding how to draw mechanical plans for enclosures. System Diagrams: Clear representation of system components.',
-            image: 'photo-1581833971358-2c8b550f87b3'
+            image: technicalDrawingImage
           },
           {
             id: 'basic-mechanics',
@@ -96,7 +111,7 @@ const Roadmap = () => {
               'Simple Machines: Levers, pulleys, gears (basic understanding)'
             ],
             connections: 'Robotics: Understanding robot kinematics and dynamics is essential for programming robot control systems. Mechatronics: Provides the mechanical foundation for this interdisciplinary field. Physical Computing: Essential for embedded systems that control motors and actuators.',
-            image: 'photo-1635070041409-e3e3b7e9b93d'
+            image: basicMechanicsImage
           },
           {
             id: 'communication-skills',
@@ -113,7 +128,7 @@ const Roadmap = () => {
               'Audience Analysis: Tailoring communication to different audiences'
             ],
             connections: 'Technical Documentation: Writing clear documentation for code and hardware designs. Team Projects: Collaborating effectively with developers and designers. Professional Development: Essential for leadership roles and client interaction.',
-            image: 'photo-1552664730-d307ca884978'
+            image: communicationSkillsImage
           },
           {
             id: 'environmental-studies',
@@ -130,7 +145,7 @@ const Roadmap = () => {
               'Impact of Technology: Energy consumption of computing, e-waste, rare earth minerals'
             ],
             connections: 'Sustainable Computing: Designing energy-efficient hardware and software. E-waste Management: Understanding the lifecycle of electronic devices. Ethical Engineering: Considering societal and environmental impact of innovations.',
-            image: 'photo-1441974231531-c6227db76b6e'
+            image: environmentalStudiesImage
           },
           {
             id: 'engineering-technology',
@@ -147,7 +162,7 @@ const Roadmap = () => {
               'Engineering Ethics: Professional responsibility, safety, societal impact'
             ],
             connections: 'Problem-Solving: Systematic approach applicable to debugging code and designing circuits. Design Process: Framework for approaching hardware and software design projects. Interdisciplinary Understanding: How Computer Engineering fits into larger systems.',
-            image: 'photo-1581092795442-8d6c60e56c28'
+            image: engineeringTechnologyImage
           }
         ],
         semester2: [
@@ -167,7 +182,7 @@ const Roadmap = () => {
               'Power Supplies: Rectification, filtering, regulation'
             ],
             connections: 'Digital Logic Design: Transistors are the building blocks of all logic gates. Computer Architecture: Understanding electronic principles of memory and processor components. VLSI Design: Foundational understanding for integrated circuit design.',
-            image: 'photo-1518709268805-4e9042af2176'
+            image: basicElectronicsImage
           },
           {
             id: 'electrical-machines',
@@ -184,7 +199,7 @@ const Roadmap = () => {
               'Power Electronics (Introduction): Basic concepts of converting and controlling electrical power'
             ],
             connections: 'Robotics & Mechatronics: Understanding motor control is essential for robotic systems. Industrial Automation: Computer systems often control large machinery. Embedded Systems: Controlling various types of motors is a common application.',
-            image: 'photo-1581833971358-2c8b550f87b3'
+            image: electricalMachinesImage
           },
           {
             id: 'calculus-analysis',
@@ -202,7 +217,7 @@ const Roadmap = () => {
               'Vector Calculus (Introduction): Line integrals, surface integrals, fundamental theorems'
             ],
             connections: 'Signal Processing: Continuous-time signals, Fourier analysis, Laplace transforms. Control Systems: Designing controllers involves solving differential equations. Machine Learning: Optimization algorithms are rooted in multivariable calculus.',
-            image: 'photo-1635070041078-e363dbe005cb'
+            image: calculusAnalysisImage
           },
           {
             id: 'electrical-drawing',
@@ -220,7 +235,7 @@ const Roadmap = () => {
               'PCB Layout Principles: Basic concepts of component placement and routing'
             ],
             connections: 'Digital Logic Design: Drawing logic gate diagrams and digital circuit schematics. Embedded Systems: Creating schematics for microcontroller boards. Hardware Design: Essential for communicating designs to manufacturing teams.',
-            image: 'photo-1581092795442-8d6c60e56c28'
+            image: electricalDrawingImage
           },
           {
             id: 'intro-it',
@@ -238,7 +253,7 @@ const Roadmap = () => {
               'IT Infrastructure: Servers, data centers'
             ],
             connections: 'Software Development: Provides context for application domains and user requirements. Networking: Reinforces concepts from practical IT deployment perspective. System Design: Understanding the overall IT ecosystem.',
-            image: 'photo-1498050108023-c5249f4df085'
+            image: introItImage
           },
           {
             id: 'intro-matlab',
@@ -256,7 +271,7 @@ const Roadmap = () => {
               'Numerical Operations: Solving linear equations, curve fitting, basic statistics'
             ],
             connections: 'Signal Processing: Simulating filters, analyzing signals, implementing DSP algorithms. Control Systems: Designing and analyzing control systems. Data Analysis: Processing experimental data and sensor readings.',
-            image: 'photo-1461749280684-dccba630e2f6'
+            image: introMatlabImage
           },
           {
             id: 'communication-skills-2',
@@ -274,7 +289,7 @@ const Roadmap = () => {
               'Interviewing & Networking: Skills for career advancement'
             ],
             connections: 'Capstone Projects: Writing detailed project reports and delivering presentations. Professional Roles: Essential for leading teams and interacting with clients. Documentation: Creating high-quality documentation for software and hardware.',
-            image: 'photo-1552664730-d307ca884978'
+            image: communicationSkillsImage
           }
         ]
       },

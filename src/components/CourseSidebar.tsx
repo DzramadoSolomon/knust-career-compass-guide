@@ -41,7 +41,7 @@ const CourseSidebar = ({ course, children }: CourseSidebarProps) => {
           {/* Course Image */}
           <div className="relative h-48 bg-gradient-to-br from-accent/10 to-primary/10 overflow-hidden rounded-lg">
             <img 
-              src={`https://images.unsplash.com/${course.image}?auto=format&fit=crop&w=600&q=80`}
+              src={course.image}
               alt={course.title}
               className="w-full h-full object-cover opacity-80"
             />
