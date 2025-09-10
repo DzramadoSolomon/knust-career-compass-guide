@@ -254,57 +254,66 @@ const Resources = () => {
   const ResourceCard = ({ resource, type }: { 
     resource: OnlineCourse | YoutubeChannel | Documentation, 
     type: string 
-  }) => (
-    <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <CardHeader>
-        <div className="flex items-start justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
-              {type === 'course' && <Monitor className="w-5 h-5 text-accent" />}
-              {type === 'youtube' && <Youtube className="w-5 h-5 text-red-500" />}
-              {type === 'docs' && <FileText className="w-5 h-5 text-primary" />}
-            </div>
-            <div>
-              <CardTitle className="text-lg">{resource.title}</CardTitle>
-              <CardDescription>
-                {type === 'course' && 'provider' in resource && resource.provider}
-                {type === 'youtube' && 'channel' in resource && 'subscribers' in resource && 
-                  `${resource.channel} • ${resource.subscribers} subscribers`}
-                {type === 'docs' && 'type' in resource && resource.type}
-              </CardDescription>
-            </div>
-          </div>
-          <Button variant="ghost" size="sm">
-            <ExternalLink className="w-4 h-4" />
-          </Button>
-        </div>
-      </CardHeader>
-      <CardContent>
-        <p className="text-muted-foreground mb-4">{resource.description}</p>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            {'duration' in resource && resource.duration && (
-              <div className="flex items-center text-sm text-muted-foreground">
-                <Clock className="w-4 h-4 mr-1" />
-                {resource.duration}
+  }) => {
+    const handleClick = () => {
+      window.open(resource.url, '_blank', 'noopener,noreferrer');
+    };
+
+    return (
+      <Card 
+        className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group" 
+        onClick={handleClick}
+      >
+        <CardHeader>
+          <div className="flex items-start justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
+                {type === 'course' && <Monitor className="w-5 h-5 text-accent" />}
+                {type === 'youtube' && <Youtube className="w-5 h-5 text-red-500" />}
+                {type === 'docs' && <FileText className="w-5 h-5 text-primary" />}
               </div>
-            )}
-            {'rating' in resource && resource.rating && (
-              <div className="flex items-center text-sm text-muted-foreground">
-                <Star className="w-4 h-4 mr-1 fill-yellow-400 text-yellow-400" />
-                {resource.rating}
+              <div>
+                <CardTitle className="text-lg group-hover:text-accent transition-colors">{resource.title}</CardTitle>
+                <CardDescription>
+                  {type === 'course' && 'provider' in resource && resource.provider}
+                  {type === 'youtube' && 'channel' in resource && 'subscribers' in resource && 
+                    `${resource.channel} • ${resource.subscribers} subscribers`}
+                  {type === 'docs' && 'type' in resource && resource.type}
+                </CardDescription>
               </div>
+            </div>
+            <Button variant="ghost" size="sm" className="group-hover:bg-accent/10">
+              <ExternalLink className="w-4 h-4 group-hover:text-accent transition-colors" />
+            </Button>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <p className="text-muted-foreground mb-4">{resource.description}</p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              {'duration' in resource && resource.duration && (
+                <div className="flex items-center text-sm text-muted-foreground">
+                  <Clock className="w-4 h-4 mr-1" />
+                  {resource.duration}
+                </div>
+              )}
+              {'rating' in resource && resource.rating && (
+                <div className="flex items-center text-sm text-muted-foreground">
+                  <Star className="w-4 h-4 mr-1 fill-yellow-400 text-yellow-400" />
+                  {resource.rating}
+                </div>
+              )}
+            </div>
+            {'price' in resource && resource.price && (
+              <Badge variant={resource.price === 'Free' ? 'secondary' : 'outline'}>
+                {resource.price}
+              </Badge>
             )}
           </div>
-          {'price' in resource && resource.price && (
-            <Badge variant={resource.price === 'Free' ? 'secondary' : 'outline'}>
-              {resource.price}
-            </Badge>
-          )}
-        </div>
-      </CardContent>
-    </Card>
-  );
+        </CardContent>
+      </Card>
+    );
+  };
 
   const currentResources = resources.computer[1] || {};
 
