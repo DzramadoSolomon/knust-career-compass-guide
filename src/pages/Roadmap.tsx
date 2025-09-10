@@ -302,42 +302,43 @@ const Roadmap = () => {
     biomedical: null
   };
 
-  const CourseCard = ({ course }: { course: any }) => (
-    <CourseSidebar course={course}>
-      <Card className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-l-4 border-l-accent/30 hover:border-l-accent bg-white/50 backdrop-blur-sm">
-        {/* Course Image */}
-        {course.image && (
-          <div className="relative h-32 bg-gradient-to-br from-accent/10 to-primary/10 overflow-hidden">
-            <img 
-              src={`https://images.unsplash.com/${course.image}?auto=format&fit=crop&w=600&q=80`}
-              alt={course.title}
-              className="w-full h-full object-cover opacity-80"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-          </div>
-        )}
+const CourseCard = ({ course }: { course: any }) => (
+  <CourseSidebar course={course}>
+    <Card className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-l-4 border-l-accent/30 hover:border-l-accent bg-white/50 backdrop-blur-sm">
+      {/* Course Image */}
+      {course.image && (
+        <div className="relative h-32 bg-gradient-to-br from-accent/10 to-primary/10 overflow-hidden">
+          <img  
+            // FIX: Directly use the imported image path
+            src={course.image}
+            alt={course.title}
+            className="w-full h-full object-cover opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+        </div>
+      )}
 
-        <CardHeader>
-          <div className="flex items-start justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
-                <course.icon className="w-5 h-5 text-accent" />
-              </div>
-              <div>
-                <CardTitle className="text-lg">{course.code}</CardTitle>
-                <CardDescription>{course.title}</CardDescription>
-              </div>
-            </div>
-            <div className="flex flex-col items-end space-y-2">
-              <Badge className="bg-accent text-accent-foreground">
-                {course.credits} Credits
-              </Badge>
-            </div>
-          </div>
-        </CardHeader>
-      </Card>
-    </CourseSidebar>
-  );
+      <CardHeader>
+        <div className="flex items-start justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
+              <course.icon className="w-5 h-5 text-accent" />
+            </div>
+            <div>
+              <CardTitle className="text-lg">{course.code}</CardTitle>
+              <CardDescription>{course.title}</CardDescription>
+            </div>
+          </div>
+          <div className="flex flex-col items-end space-y-2">
+            <Badge className="bg-accent text-accent-foreground">
+              {course.credits} Credits
+            </Badge>
+          </div>
+        </div>
+      </CardHeader>
+    </Card>
+  </CourseSidebar>
+);
 
   return (
     <div className="min-h-screen bg-background">
