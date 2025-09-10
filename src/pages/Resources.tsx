@@ -21,9 +21,41 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ResourcesData, CourseResources, OnlineCourse, YoutubeChannel, Documentation } from '@/types/resources';
 
+// Course Images
+import algebraImage from '@/assets/courses/algebra.jpg';
+import appliedElectricityImage from '@/assets/courses/applied-electricity.jpg';
+import technicalDrawingImage from '@/assets/courses/technical-drawing.jpg';
+import basicMechanicsImage from '@/assets/courses/basic-mechanics.jpg';
+import communicationSkillsImage from '@/assets/courses/communication-skills.jpg';
+import environmentalStudiesImage from '@/assets/courses/environmental-studies.jpg';
+import engineeringTechnologyImage from '@/assets/courses/engineering-technology.jpg';
+import basicElectronicsImage from '@/assets/courses/basic-electronics.jpg';
+import electricalMachinesImage from '@/assets/courses/electrical-machines.jpg';
+import calculusAnalysisImage from '@/assets/courses/calculus-analysis.jpg';
+import electricalDrawingImage from '@/assets/courses/electrical-drawing.jpg';
+import introItImage from '@/assets/courses/intro-it.jpg';
+import introMatlabImage from '@/assets/courses/intro-matlab.jpg';
+
 const Resources = () => {
   const [selectedDepartment, setSelectedDepartment] = useState('computer');
   const [selectedYear, setSelectedYear] = useState('1');
+
+  // Course code to image mapping
+  const courseImages: { [key: string]: string } = {
+    'MATH 110': algebraImage,
+    'EE 120': appliedElectricityImage,
+    'ENGR 110': technicalDrawingImage,
+    'MECH 110': basicMechanicsImage,
+    'COMM 101': communicationSkillsImage,
+    'ENVS 101': environmentalStudiesImage,
+    'ENGR 130': engineeringTechnologyImage,
+    'EE 210': basicElectronicsImage,
+    'EE 220': electricalMachinesImage,
+    'MATH 210': calculusAnalysisImage,
+    'EE 230': electricalDrawingImage,
+    'IT 101': introItImage,
+    'MATLAB 101': introMatlabImage,
+  };
 
   const resources: ResourcesData = {
     computer: {
@@ -360,6 +392,15 @@ const Resources = () => {
           {Object.entries(currentResources).map(([courseCode, courseResources]: [string, CourseResources]) => (
             <div key={courseCode} className="space-y-8">
               <div className="text-center">
+                {/* Course Image */}
+                <div className="relative w-32 h-24 mx-auto mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-accent/10 to-primary/10">
+                  <img 
+                    src={courseImages[courseCode]} 
+                    alt={courseCode}
+                    className="w-full h-full object-cover opacity-80"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+                </div>
                 <h2 className="text-2xl font-bold text-foreground mb-2">{courseCode}</h2>
                 <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
               </div>
